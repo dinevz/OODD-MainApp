@@ -6,7 +6,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Scanner;
 
-// Author: [Group Member A Name]
+// Author: Zhivko
 // Task: Group Member A - Student functionalities
 public class StudentService {
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
