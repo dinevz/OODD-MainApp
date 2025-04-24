@@ -3,8 +3,9 @@
 A console-based Java application for student support services at Solent University.
 
 ## Group Members
-- [Your Name]: Group Member A (Session Requests, Feedback, Reminders)
-- [Member 2]: Group Member B (Admin Features)
+- Zhivko: Group Member A (Session Requests, Feedback, Reminders)
+- Catalin: Group Member B (Admin Features)
+- George: Group Member C (FAQs, FAQ management, analytics)
 
 ## Setup
 1. Clone the repository: `git clone https://github.com/username/OODD-MainApp.git`
