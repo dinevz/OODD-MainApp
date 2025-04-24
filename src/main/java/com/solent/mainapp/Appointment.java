@@ -3,7 +3,7 @@ package com.solent.mainapp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-// Author: [Group Member A Name]
+// Author: Zhivko
 // Task: Group Member A - Appointment class for session requests and feedback
 public class Appointment {
     private int id;

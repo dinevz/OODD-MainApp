@@ -1,9 +1,10 @@
 package com.solent.mainapp;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-// Author: [Group Name]
+// Author: Zhivko
 // Task: Group Integration - Centralized data management
 public class DataManager {
     private static List<User> userList = new ArrayList<>();

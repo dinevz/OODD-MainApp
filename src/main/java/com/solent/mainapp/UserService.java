@@ -3,7 +3,7 @@ package com.solent.mainapp;
 import java.util.ArrayList;
 import java.util.List;
 
-// Author: [Group Member B Name]
+// Author: Catalin
 // Task: Group Member B - User authentication and registration
 public class UserService implements IUser {
     private List<User> userList = new ArrayList<>();

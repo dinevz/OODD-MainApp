@@ -1,6 +1,6 @@
 package com.solent.mainapp;
 
-// Author: [Group Member B Name]
+// Author: Catalin
 // Task: Group Member B - Interface for user authentication
 public interface IUser {
     /**

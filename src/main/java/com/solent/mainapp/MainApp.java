@@ -2,11 +2,11 @@ package com.solent.mainapp;
 
 import java.util.Scanner;
 
-// Group Integration: [Group Name]
+// Group Integration
 // This class integrates contributions from Group Members A, B, and C.
-// - Group Member A: StudentService (session requests, appointments, feedback, reminders)
-// - Group Member B: AdminService (appointment management, feedback viewing, user roles)
-// - Group Member C: FAQService and AnalyticsService (FAQs, analytics)
+// - Zhivko: StudentService (session requests, appointments, feedback, reminders)
+// - Catalin: AdminService (appointment management, feedback viewing, user roles)
+// - George: FAQService and AnalyticsService (FAQs, analytics)
 // Integration Challenges:
 // 1. Data consistency: Multiple services accessed userList and appointmentList, causing potential conflicts.
 //    Solution: Created DataManager to centralize data storage.

@@ -1,6 +1,11 @@
-com\solent\mainapp\UserService.class
+com\solent\mainapp\DataManager.class
 com\solent\mainapp\MainApp.class
 com\solent\mainapp\User.class
-com\solent\mainapp\UserServiceold.class
 com\solent\mainapp\IUser.class
 com\solent\mainapp\Appointment.class
+com\solent\mainapp\AdminService.class
+com\solent\mainapp\UserService.class
+com\solent\mainapp\StudentService.class
+com\solent\mainapp\FAQ.class
+com\solent\mainapp\FAQService.class
+com\solent\mainapp\AnalyticsService.class

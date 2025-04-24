@@ -1,6 +1,6 @@
 package com.solent.mainapp;
 
-// Author: [Group Member B Name]
+// Author: Catalin
 // Task: Group Member B - User class for role differentiation
 public class User {
     private Integer userId;
