@@ -1,71 +1,72 @@
 package com.solent.mainapp;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+// Author: [Group Member A Name]
+// Task: Group Member A - Appointment class for session requests and feedback
 public class Appointment {
+    private int id;
+    private int userId; // Links appointment to a user
+    private String supportType;
+    private LocalDateTime dateTime;
+    private Integer feedback;
+    private String comments; // For feedback comments
+    private String status;
 
-    private int id;                 // Appointment ID
-    private String supportType;     // Type of support (Mental Health, Academic Support, etc.)
-    private String dateTime;        // Date and time of the appointment (in a string format)
-    private Integer feedback;       // Feedback score (1-5)
-    private String status;          // Status of the appointment (Approved, Canceled, Pending)
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
-    // Constructor to initialize the appointment
-    public Appointment(int id, String supportType, String dateTime, Integer feedback) {
+    public Appointment(int id, int userId, String supportType, LocalDateTime dateTime, Integer feedback, String comments) {
         this.id = id;
-        this.supportType = supportType;
+        this.userId = userId;
+        this.supportType = validateSupportType(supportType);
         this.dateTime = dateTime;
-        this.feedback = feedback;
-        this.status = "Pending"; // Default status is "Pending"
+        this.feedback = validateFeedback(feedback);
+        this.comments = comments;
+        this.status = "Pending";
     }
 
-    // Getter and Setter methods
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getSupportType() {
+    // Validate support type
+    private String validateSupportType(String supportType) {
+        if (!supportType.equals("Mental Health") && !supportType.equals("Academic Support") && !supportType.equals("Financial Aid")) {
+            throw new IllegalArgumentException("Invalid support type");
+        }
         return supportType;
     }
 
-    public void setSupportType(String supportType) {
-        this.supportType = supportType;
-    }
-
-    public String getDateTime() {
-        return dateTime;
-    }
-
-    public void setDateTime(String dateTime) {
-        this.dateTime = dateTime;
-    }
-
-    public Integer getFeedback() {
+    // Validate feedback score
+    private Integer validateFeedback(Integer feedback) {
+        if (feedback != null && (feedback < 1 || feedback > 5)) {
+            throw new IllegalArgumentException("Feedback must be between 1 and 5");
+        }
         return feedback;
     }
 
-    public void setFeedback(Integer feedback) {
-        this.feedback = feedback;
-    }
+    // Getters and Setters
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
+    public int getUserId() { return userId; }
+    public void setUserId(int userId) { this.userId = userId; }
+    public String getSupportType() { return supportType; }
+    public void setSupportType(String supportType) { this.supportType = validateSupportType(supportType); }
+    public LocalDateTime getDateTime() { return dateTime; }
+    public void setDateTime(LocalDateTime dateTime) { this.dateTime = dateTime; }
+    public Integer getFeedback() { return feedback; }
+    public void setFeedback(Integer feedback) { this.feedback = validateFeedback(feedback); }
+    public String getComments() { return comments; }
+    public void setComments(String comments) { this.comments = comments; }
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    // Override toString method to display the appointment details
     @Override
     public String toString() {
         return "Appointment{" +
                 "id=" + id +
+                ", userId=" + userId +
                 ", supportType='" + supportType + '\'' +
-                ", dateTime='" + dateTime + '\'' +
+                ", dateTime=" + dateTime.format(FORMATTER) +
                 ", feedback=" + feedback +
+                ", comments='" + comments + '\'' +
                 ", status='" + status + '\'' +
                 '}';
     }
