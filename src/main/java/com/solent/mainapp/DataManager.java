@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-// Author: Zhivko
+// Author: [Group Name]
 // Task: Group Integration - Centralized data management with enhanced hardcoded data for testing
 // Integration Note: This class provides diverse users, appointments, and FAQs to test all functionalities
 // for Group Member A (student features), B (admin features), and C (FAQs, analytics).
@@ -35,9 +35,9 @@ public class DataManager {
         appointmentList.add(new Appointment(5, 3, "Academic Support", LocalDateTime.parse("2025-04-02T15:00"), null, null, "Canceled"));
         appointmentList.add(new Appointment(6, 5, "Financial Aid", LocalDateTime.parse("2025-03-27T16:00"), 3, "Average experience", "Approved"));
         appointmentList.add(new Appointment(7, 5, "Mental Health", LocalDateTime.parse("2025-03-28T12:00"), null, null, "Pending"));
-        appointmentList.add(new Appointment(8, 6, "Academic Support", LocalDateTime.parse("2025-03-26T10:00"), 1, "Not enough time", "Approved")); // Past appointment
-        appointmentList.add(new Appointment(9, 6, "Financial Aid", LocalDateTime.parse("2025-04-10T13:00"), null, null, "Approved")); // Future appointment
-        appointmentList.add(new Appointment(10, 1, "Mental Health", LocalDateTime.parse("2025-03-27T09:00"), 4, "Great counselor", "Approved")); // For reminder testing
+        appointmentList.add(new Appointment(8, 6, "Academic Support", LocalDateTime.parse("2025-03-26T10:00"), 1, "Not enough time", "Approved"));
+        appointmentList.add(new Appointment(9, 6, "Financial Aid", LocalDateTime.parse("2025-04-10T13:00"), null, null, "Approved"));
+        appointmentList.add(new Appointment(10, 1, "Mental Health", LocalDateTime.parse("2025-03-27T09:00"), 4, "Great counselor", "Approved"));
 
         // FAQs: Comprehensive set for viewing and management testing
         faqList.add(new FAQ(1, "What is mental health support?", "Includes counseling, therapy, and stress management sessions."));
