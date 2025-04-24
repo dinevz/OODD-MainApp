@@ -6,16 +6,17 @@ import java.time.format.DateTimeFormatter;
 // Author: Zhivko
 // Task: Group Member A - Appointment class for session requests and feedback
 public class Appointment {
-    private int id;
-    private int userId; // Links appointment to a user
-    private String supportType;
-    private LocalDateTime dateTime;
-    private Integer feedback;
-    private String comments; // For feedback comments
-    private String status;
+    private int id;                 // Appointment ID
+    private int userId;            // User ID to link to a student
+    private String supportType;     // Type of support (Mental Health, Academic Support, Financial Aid)
+    private LocalDateTime dateTime; // Date and time of the appointment
+    private Integer feedback;       // Feedback score (1-5)
+    private String comments;        // Feedback comments
+    private String status;          // Status (Approved, Canceled, Pending)
 
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
+    // Constructor for creating new appointments (used in DataManager and requestSupportSession)
     public Appointment(int id, int userId, String supportType, LocalDateTime dateTime, Integer feedback, String comments) {
         this.id = id;
         this.userId = userId;
@@ -23,12 +24,18 @@ public class Appointment {
         this.dateTime = dateTime;
         this.feedback = validateFeedback(feedback);
         this.comments = comments;
-        this.status = "Pending";
+        this.status = "Pending"; // Default status
+    }
+
+    // Constructor with status for testing (used in DataManager for hardcoded data)
+    public Appointment(int id, int userId, String supportType, LocalDateTime dateTime, Integer feedback, String comments, String status) {
+        this(id, userId, supportType, dateTime, feedback, comments);
+        this.status = status;
     }
 
     // Validate support type
     private String validateSupportType(String supportType) {
-        if (!supportType.equals("Mental Health") && !supportType.equals("Academic Support") && !supportType.equals("Financial Aid")) {
+        if (supportType == null || (!supportType.equals("Mental Health") && !supportType.equals("Academic Support") && !supportType.equals("Financial Aid"))) {
             throw new IllegalArgumentException("Invalid support type");
         }
         return supportType;
@@ -64,9 +71,9 @@ public class Appointment {
                 "id=" + id +
                 ", userId=" + userId +
                 ", supportType='" + supportType + '\'' +
-                ", dateTime=" + dateTime.format(FORMATTER) +
+                ", dateTime=" + (dateTime != null ? dateTime.format(FORMATTER) : "null") +
                 ", feedback=" + feedback +
-                ", comments='" + comments + '\'' +
+                ", comments='" + (comments != null ? comments : "null") + '\'' +
                 ", status='" + status + '\'' +
                 '}';
     }
