@@ -10,9 +10,10 @@ import java.util.Scanner;
 // Integration Challenges:
 // 1. Data consistency: Multiple services accessed userList and appointmentList, causing potential conflicts.
 //    Solution: Created DataManager to centralize data storage.
-// 2. User-appointment linking: Original code lacked user-specific appointments.
+// 2. User-appointment linking: Needed user-specific appointments.
 //    Solution: Added userId to Appointment class.
 // 3. Menu navigation: Ensured seamless transitions between student, admin, and FAQ menus.
+
 public class MainApp {
     private static UserService userService = new UserService();
     private static StudentService studentService = new StudentService();
