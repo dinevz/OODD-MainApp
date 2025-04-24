@@ -1,11 +1,17 @@
+
 package com.solent.mainapp;
 
 import java.util.List;
 import java.util.Scanner;
 
-// Author: George
-// Task: Group Member C - FAQ management
+/**
+ * Author: George
+ * FAQService handles viewing and managing FAQs.
+ * Students can read them, admins can modify them through this service.
+ */
 public class FAQService {
+
+    // Just prints out all the FAQs in a nice format
     public void viewFAQs(List<FAQ> faqs) {
         System.out.println("\nStudent Welfare FAQs:");
         if (faqs.isEmpty()) {
@@ -17,6 +23,7 @@ public class FAQService {
         }
     }
 
+    // Simple text menu system for admins to manage FAQs
     public void manageFAQs(List<FAQ> faqs, Scanner scanner) {
         boolean running = true;
         while (running) {
@@ -29,31 +36,25 @@ public class FAQService {
 
             try {
                 int choice = scanner.nextInt();
-                scanner.nextLine();
+                scanner.nextLine(); // eat the leftover newline
                 switch (choice) {
-                    case 1:
-                        addFAQ(faqs, scanner);
-                        break;
-                    case 2:
-                        updateFAQ(faqs, scanner);
-                        break;
-                    case 3:
-                        removeFAQ(faqs, scanner);
-                        break;
-                    case 4:
+                    case 1 -> addFAQ(faqs, scanner);
+                    case 2 -> updateFAQ(faqs, scanner);
+                    case 3 -> removeFAQ(faqs, scanner);
+                    case 4 -> {
                         System.out.println("Exiting FAQ Management...");
                         running = false;
-                        break;
-                    default:
-                        System.out.println("Invalid choice! Try again.");
+                    }
+                    default -> System.out.println("Invalid choice! Try again.");
                 }
             } catch (Exception e) {
                 System.out.println("Invalid input! Please enter a number.");
-                scanner.nextLine();
+                scanner.nextLine(); // reset input
             }
         }
     }
 
+    // Ask the admin to enter a question and answer, then add it to the list
     private void addFAQ(List<FAQ> faqs, Scanner scanner) {
         System.out.print("Enter FAQ question: ");
         String question = scanner.nextLine();
@@ -64,6 +65,7 @@ public class FAQService {
         System.out.println("FAQ added successfully.");
     }
 
+    // Find a FAQ by ID, and update its question/answer
     private void updateFAQ(List<FAQ> faqs, Scanner scanner) {
         System.out.print("Enter FAQ ID to update: ");
         int faqId;
@@ -92,6 +94,7 @@ public class FAQService {
         System.out.println("FAQ not found.");
     }
 
+    // Remove the FAQ with the given ID, if it exists
     private void removeFAQ(List<FAQ> faqs, Scanner scanner) {
         System.out.print("Enter FAQ ID to remove: ");
         int faqId;
@@ -104,7 +107,10 @@ public class FAQService {
             return;
         }
 
-        faqs.removeIf(faq -> faq.getId() == faqId);
-        System.out.println("FAQ removed successfully.");
+        if (faqs.removeIf(faq -> faq.getId() == faqId)) {
+            System.out.println("FAQ removed successfully.");
+        } else {
+            System.out.println("FAQ not found.");
+        }
     }
 }
