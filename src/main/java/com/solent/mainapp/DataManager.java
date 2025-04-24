@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-// Author: [Group Name]
+// Author: Group work
 // Task: Group Integration - Centralized data management with enhanced hardcoded data for testing
 // Integration Note: This class provides diverse users, appointments, and FAQs to test all functionalities
 // for Group Member A (student features), B (admin features), and C (FAQs, analytics).
