@@ -1,0 +1,1 @@
+ public interface IUser { boolean login(String email, String password); void Register(IUser user); }
